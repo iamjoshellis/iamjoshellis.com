@@ -1,0 +1,9 @@
+.single-work.vantage-point-global{
+  .page-header {
+    @include bg-gradient(
+      -150deg,
+      lighten(#2ca1d6, 5%),
+      darken(#2ca1d6, 5%)
+    );
+  }
+}

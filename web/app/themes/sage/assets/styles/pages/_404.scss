@@ -1,0 +1,71 @@
+.error404 {
+  .wrap .content {
+    min-height: 100vh;
+  }
+  .header, .menu-container {
+    animation: fall-left 0.7s cubic-bezier(.87,-.41,.19,1.44) forwards;
+  }
+  .page-header {
+    animation: fall-right 0.6s cubic-bezier(.87,-.41,.19,1.44) forwards;
+    animation-delay: 0.4s;
+  }
+  .page-header + .container {
+    animation: fall-left 0.8s cubic-bezier(.87,-.41,.19,1.44) forwards;
+    animation-delay: 0.7s;
+  }
+  .footer {
+    margin: 4rem 0;
+    animation: fall-right 0.6s cubic-bezier(.87,-.41,.19,1.44) forwards;
+    animation-delay: 1s;
+  }
+  .footer-info {
+    animation: fall-left 0.6s cubic-bezier(.87,-.41,.19,1.44) forwards;
+    animation-delay: 1.2s;
+  }
+  .page-header h1 {
+    animation: hinge 3s forwards;
+    animation-delay: 1.5s;
+  }
+  .page-header + .container p {
+    @include lead-text;
+  }
+}
+
+@keyframes fall-left {
+  100% {
+    transform: rotate(-3deg);
+    transform-origin: top right;
+  }
+}
+
+@keyframes fall-right {
+  100% {
+    transform: rotate(3deg);
+    transform-origin: top left;
+  }
+}
+
+@keyframes hinge {
+  0% {
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  20%, 60% {
+    transform: rotate3d(0, 0, 1, 80deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+  }
+
+  40%, 80% {
+    transform: rotate3d(0, 0, 1, 60deg);
+    transform-origin: top left;
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(0, 700px, 0);
+    opacity: 0;
+  }
+}

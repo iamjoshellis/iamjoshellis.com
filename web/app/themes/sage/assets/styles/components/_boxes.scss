@@ -1,0 +1,12 @@
+@each $color-name, $color-value in $colors {
+	.box-#{$color-name} {
+		color: $white;
+		padding: 1.5em;
+		margin: 0.5em 0;
+		background: darken($color-value, 5%);
+		border-left: .25em solid darken($color-value, 10%);
+		p {
+			padding: 0;
+		}
+	}
+}

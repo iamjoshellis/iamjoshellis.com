@@ -1,0 +1,20 @@
+@mixin bg-gradient ($direction, $color-1, $color-2, $url: false) {
+  background: $color-1;
+  @if $url {
+    background:
+      url($url),
+      linear-gradient(
+        $direction,
+        $color-1,
+        $color-2
+      );
+    background-size: contain;
+  } @else {
+    background:
+      linear-gradient(
+        $direction,
+        $color-1,
+        $color-2
+      );
+  }
+}

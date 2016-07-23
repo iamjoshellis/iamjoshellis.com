@@ -1,0 +1,32 @@
+.about.page {
+  .page-header {
+    height: 100vh;
+    background-image: url('/app/themes/sage/dist/images/josh-profile.jpg');
+    background-size: contain;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: black;
+  }
+  @include screen-above(1100px) {
+    .page-header .text-container {
+      align-items: flex-start;
+      text-align: left;
+    }
+    .page-header .text-container h1 {
+      margin-bottom: 0;
+      &:after {
+        display: none;
+      }
+    }
+  }
+  .page-header .nav-social a {
+    color: $gray-lighter;
+    &:hover {
+      color: $white;
+    }
+  }
+  .page-header .nav-social li:first-child {
+    margin-left: 0;
+    padding-left: 0;
+  }
+}

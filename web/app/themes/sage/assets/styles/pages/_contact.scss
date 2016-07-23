@@ -1,0 +1,236 @@
+.page.contact {
+  .input-wrapper:first-of-type {
+    margin-top: 1em;
+  }
+  .btn-contact-submit {
+    margin-top: 2.9em;
+  }
+  .form-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: rgba($white, 0);
+    transition: background 300ms ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .overlay-icon {
+      margin-top: -10%;
+    }
+    .overlay-message {
+      @extend .h4;
+      transition: color 300ms ease-out;
+    }
+    svg {
+      width: 100%;
+      height: auto;
+      fill: none;
+      stroke-width: 4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 4;
+    }
+    * {
+      display: none;
+    }
+  }
+
+  .state-loading .form-overlay,
+  .state-success .form-overlay,
+  .state-error .form-overlay {
+    background: rgba($body-bg, 0.9);
+    z-index: 1000;
+    * {
+      display: block;
+    }
+  }
+
+  .state-loading {
+    .overlay-message {
+      color: map-get($colors, info);
+    }
+    svg {
+      stroke: map-get($colors, info);
+    }
+  }
+  #mail {
+    stroke-dasharray: 325 325;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1s ease-in-out;
+    animation: fade-in 1s ease-out, draw-mail 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+  @keyframes draw-mail {
+    to {
+      stroke-dashoffset: 326;
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  #plane {
+    transform: translate3d(0,0,0);
+    stroke-dasharray: 325 325;
+    stroke-dashoffset: 325;
+    animation: draw-plane 1s 0.6s ease-in-out, fly 2.4s ease-in-out;
+    animation-fill-mode: both;
+  }
+  @keyframes draw-plane {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes fly {
+    0%,
+    50% {
+      transform: translate3d(0,0,0) scale(1);
+    }
+    60% {
+      transform: translate3d(-50px,5px,0) scale(1.05);
+    }
+    70% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      transform: translate3d(800px,-150px,0) scale(0.4);
+      opacity: 0;
+    }
+  }
+
+  .state-success {
+    .overlay-message {
+      color: lighten(map-get($colors, success), 10%);
+    }
+    svg {
+      stroke-width: 8;
+      stroke: lighten(map-get($colors, success), 10%);
+    }
+  }
+  #tick {
+    stroke-width: 10;
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+    animation: draw-tick 1.5s 0.5s forwards alternate 1;
+  }
+  @keyframes draw-tick {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  #circle {
+    transform-origin: 50% 50%;
+    transform: scale3d(0,0,0);
+    animation: circle-pulse 1.5s 0s forwards alternate 1;
+  }
+  @keyframes circle-pulse {
+    from {
+      transform: scale3d(0, 0, 0);
+    }
+    50% {
+      transform: scale3d(1.1, 1.1, 1.1);
+    }
+    to {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+  #pop-group path {
+    stroke-dasharray: 50;
+    stroke-dashoffset: 50;
+    animation: draw-pop 1.8s forwards;
+  }
+  @keyframes draw-pop {
+    50% {
+      stroke-dasharray: 40;
+      stroke-dashoffset: -40;
+    }
+    100% {
+      stroke-dasharray: 50;
+      stroke-dashoffset: -50;
+    }
+  }
+
+  .state-error {
+    .overlay-message {
+      color: lighten(map-get($colors, danger), $lighten);
+    }
+    svg  {
+      stroke-width: 8;
+      stroke: lighten(map-get($colors, danger), $lighten);
+    }
+  }
+  #cross {
+    stroke-width: 10;
+    stroke-dasharray: 150;
+    stroke-dashoffset: 150;
+    animation: draw-cross 1.5s 0.5s forwards alternate 1;
+  }
+  @keyframes draw-cross {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+}
+
+.no-js {
+  .btn-contact-submit {
+    @extend .btn, .btn-primary, .btn-icon-animated;
+    &:before {
+      @include icon-font;
+      content: "\e919";
+    }
+  }
+}
+.js {
+  .btn-contact-submit {
+    @extend .btn, .btn-disabled;
+    &:before {
+      @include icon-font;
+    }
+  }
+  .state-valid .btn-contact-submit {
+    @extend .btn-success, .btn-icon-animated;
+    &:before {
+      content: "\e916";
+    }
+  }
+  .state-invalid .btn-contact-submit {
+    @extend .btn-danger, .btn-icon-animated;
+    &:before {
+      content: "\e915";
+    }
+  }
+  .state-loading .btn-contact-submit {
+    @extend .btn-info, .btn-icon-animated;
+    &:before {
+      content: "\e912";
+    }
+  }
+  .state-error .btn-contact-submit {
+    @extend .btn-danger, .btn-icon-animated;
+    &:before {
+      content: "\e915";
+    }
+  }
+  .state-success .btn-contact-submit {
+    @extend .btn-success, .btn-icon-animated;
+    &:before {
+      content: "\e916";
+    }
+  }
+  .state-disabled .btn-contact-submit {
+    @extend .btn-disabled;
+  }
+}

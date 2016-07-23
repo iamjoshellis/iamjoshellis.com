@@ -1,0 +1,40 @@
+.footer {
+  @include box-shadow(0, 0, $box-shadow-small, $box-shadow-normal);
+}
+
+.footer-info {
+  padding: 1em 0;
+  text-align: center;
+  @include bg-gradient(
+    -110deg,
+    lighten($gray-base, $lighten),
+    darken($gray-base, $darken)
+  );
+  span {
+    font-size: $font-size-small;
+  }
+}
+
+.contact-banner {
+  padding: 2em 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @include bg-gradient(
+    -45deg,
+    lighten(map-get($colors, info), 7.5%),
+    darken(map-get($colors, info), 7.5%)
+  );
+  p {
+    @extend .h4;
+    color: $white;
+  }
+}
+
+.single, .page {
+  .footer {
+    margin-top: 4rem;
+  }
+}

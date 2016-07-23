@@ -1,0 +1,21 @@
+.single,
+.page {
+  .the-content iframe {
+    margin: 1em 0;
+    @include box-shadow(0, 0, $box-shadow-small, $box-shadow-light);
+  }
+  .content-meta  {
+    margin-bottom: 1em;
+  }
+  .button-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .the-content {
+    margin-bottom: 4rem;
+    > p:first-of-type {
+      @include lead-text;
+    }
+  }
+}

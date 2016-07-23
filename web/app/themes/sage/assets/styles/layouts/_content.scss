@@ -1,0 +1,133 @@
+.blog, .archive, .search {
+  .post, .work {
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 0.25rem $gray-lightest solid;
+    &:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .btn {
+      margin: 1.5em 0 0 0;
+    }
+  }
+  .post .entry-title {
+    padding-top: 0;
+  }
+  .wp-post-image {
+    display: block;
+    margin: 1em auto;
+    transition: transform $link-transistion-time ease-out;
+    &:hover {
+      transform: translateY(-0.5rem);
+    }
+  }
+}
+
+.content-meta {
+  @include list-unstyled;
+  font-size: $font-size-small;
+  li {
+    padding: 0.25em 0;
+    @media screen and (min-width: map-get($breakpoints, small)) {
+      display: inline-block;
+      margin-right: 1em;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  i {
+    color: $gray-lighter;
+  }
+  span {
+    margin-right: 0.5em;
+  }
+}
+
+.social-share {
+  @include list-unstyled;
+  display: inline-block;
+  li {
+    display: inline-block;
+  }
+}
+
+// .nav-meta {
+//   border-top: 0.25rem $gray-lightest solid;
+//   border-bottom: 0.25rem $gray-lightest solid;
+//   padding: 1em;
+// }
+//
+// .nav-meta .container {
+//   position: initial;
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   @include screen-below(map-get($breakpoints, medium)) {
+//     max-width: 100%;
+//   };
+// }
+//
+// .nav-meta .nav {
+//   padding: 3em 1em;
+//   position: absolute;
+//   z-index: 10000;
+//   top: 100%;
+//   right: 0;
+//   left: 0;
+//   border-top: 0.25rem darken( map-get($colors, info), 10%)  solid;
+//   border-bottom: 0.25rem darken( map-get($colors, info), 10%)  solid;
+//   @include box-shadow(0, 0, $box-shadow-small, $box-shadow-normal);
+//   @include bg-gradient(
+//     -150deg,
+//     lighten( map-get($colors, info), 5%),
+//     darken( map-get($colors, info), 5%)
+//   );
+// }
+//
+// .nav-meta .nav li {
+//   padding: 0;
+// }
+//
+// .nav-meta .nav li a {
+//   color: $white;
+//   font-size: 0.7em;
+//   font-weight: 700;
+//   text-transform: uppercase;
+//   letter-spacing: 0.0625em;
+// }
+//
+// .nav-meta button {
+//   margin: 0;
+//   cursor: pointer;
+//   color: $gray-lighter;
+//   background: none;
+//   border: 0.1875em solid;
+//   transition: color $btn-transistion-time ease-out;
+//   &:active,
+//   &:hover {
+//     color: $link-color;
+//   }
+// }
+//
+// .nav-meta button + button {
+//   margin-left: 0.5em;
+// }
+//
+// .nav-meta .search-form {
+//   margin-left: auto;
+// }
+//
+// .nav-meta .nav {
+//   transition: transform, opacity, 0.45s ease-out;
+// }
+//
+// .js .nav-meta .nav {
+//   transform: perspective(400px) rotateX(-90deg);
+//   transform-origin: top;
+// }
+//
+// .js .nav-meta .nav.state--visible {
+//   transform: perspective(400px) rotateX(0deg);
+// }

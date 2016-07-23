@@ -1,0 +1,50 @@
+.single-work.pens-of-rock{
+  .page-header {
+    @include bg-gradient(
+      -150deg,
+      lighten(#0BC1F8, 5%),
+      darken(#0BC1F8, 5%)
+    );
+    max-height: none;
+    .text-container {
+      padding-bottom: 0;
+    }
+    .img-container {
+      width: 100%;
+      margin-bottom: 4rem;
+    }
+    .banner-img-left,
+    .banner-img-right {
+      z-index: 2;
+    }
+    img {
+      border-radius: 0;
+      box-shadow: none;
+      margin-bottom: 0;
+    }
+  }
+  .project-logo {
+    cursor: pointer;
+    &:hover {
+      animation: tada 1s;
+    }
+  }
+}
+
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+  10%, 20% {
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+  30%, 50%, 70%, 90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+  40%, 60%, 80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}

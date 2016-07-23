@@ -1,0 +1,21 @@
+nav ul {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	@include list-unstyled;
+	li {
+		padding: 1em;
+		flex: 1;
+	}
+}
+
+.nav-links {
+	margin-bottom: 4rem;
+	display: flex;
+	justify-content: space-between;
+	font-size: 0.7em;
+	font-weight: 700;
+	text-transform: uppercase;
+}

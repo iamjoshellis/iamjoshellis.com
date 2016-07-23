@@ -1,0 +1,168 @@
+.page-header {
+  @include bg-gradient(
+    -150deg,
+    lighten( map-get($colors, primary), 5%),
+    darken( map-get($colors, primary), 5%)
+  );
+  text-align: center;
+  color: $white;
+  overflow-y: hidden;
+  z-index: 1;
+  max-height: 100vh;
+  @include box-shadow(0, 0, $box-shadow-small, $box-shadow-normal);
+  h1 {
+    pointer-events: all;
+    color: $white;
+    @extend .h2;
+    display: inline-block;
+    margin-bottom: 0.75em;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -0.2em;
+      left: 35%;
+      width: 30%;
+      height: 0.09em;
+      background: $white;
+      animation: expand 0.75s forwards ease-out;
+      transform: scale3d(0, 1, 1);
+    }
+  }
+  p {
+    pointer-events: all;
+    font-size: $font-size-large;
+    padding-top: 0;
+  }
+  svg {
+    display: none;
+    z-index: 2;
+    max-width: 80%;
+  }
+  img {
+    pointer-events: all;
+    z-index: 2;
+    margin-bottom: -1em;
+    border-radius: 3px;
+    @include box-shadow(0, 0, $box-shadow-small, $box-shadow-light);
+  }
+  iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+  }
+  .text-container {
+    padding: 2em 0;
+    pointer-events: none;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  .img-container {
+    pointer-events: none;
+    width: 80%;
+    max-width: 2500px;
+  }
+}
+
+.nav-meta + .container,
+.page-header + .container {
+  margin-top: 4rem;
+}
+
+/**
+ * Banner Images
+ */
+
+.page-header {
+  .banner-img {
+    max-width: 50%;
+  }
+  .banner-img-left,
+  .banner-img-right {
+    position: absolute;
+    z-index: 1;
+    margin-top: 2em;
+  }
+  .banner-img-left {
+    left: 0;
+  }
+  .banner-img-right {
+    right: 0;
+  }
+}
+
+.page-header {
+  margin-top: -$header-height;
+  padding-top: $header-height;
+}
+
+.js .page-header {
+  .banner-img,
+  .wp-post-image {
+    opacity: 0;
+  }
+  .banner-img-left {
+    left: 0;
+  }
+  .banner-img-right {
+    right: 0;
+  }
+}
+
+.js .page-header.images-loaded {
+  .banner-img-center,
+  .wp-post-image {
+    animation: fade-in 1s forwards ease-out;
+  }
+  .banner-img-left {
+    animation: slide-left 0.75s forwards ease-out;
+    animation-delay: 0.75s;
+  }
+  .banner-img-right {
+    animation: slide-right 0.75s forwards ease-out;
+    animation-delay: 0.75s;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slide-right {
+  from {
+    right: 25%;
+    opacity: 0;
+  }
+  to {
+    right: 0;
+    opacity: 1;
+  }
+}
+@keyframes slide-left {
+  from {
+    left: 25%;
+    opacity: 0;
+  }
+  to {
+    left: 0;
+    opacity: 1;
+  }
+}
+@keyframes expand {
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}

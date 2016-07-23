@@ -1,0 +1,9 @@
+.single-work.eat-me-skinny{
+  .page-header {
+    @include bg-gradient(
+      -150deg,
+      lighten(#ff1e63, 5%),
+      darken(#ff1e63, 5%)
+    );
+  }
+}

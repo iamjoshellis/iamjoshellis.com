@@ -1,0 +1,278 @@
+.input-wrapper,
+.textarea-wrapper,
+.select-wrapper,
+.output-wrapper,
+fieldset {
+	z-index: 1;
+	display: inline-block;
+	width: 100%;
+	vertical-align: top;
+	border-radius: 6px;
+	margin-top: 2em;
+}
+
+.input-wrapper input,
+.textarea-wrapper textarea,
+.select-wrapper label {
+	color: $text-color;
+	resize: none;
+	padding: 0.8em;
+	padding-right: 2.8em;
+	border: none;
+	appearance: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	width: 100%;
+	height: 100%;
+	background: transparent;
+	border-radius: 6px;
+	&:focus {
+		outline: none;
+	}
+}
+
+.input-wrapper input[type="color"],
+.input-wrapper input[type="range"],
+.input-wrapper input[type="file"],
+.input-wrapper input[type="submit"],
+.input-wrapper input[type="reset"],
+.input-wrapper input[type="button"] {
+
+}
+
+.select-wrapper select {
+	border: none;
+	padding: 0.8em;
+	width: 100%;
+	appearance: none;
+	text-transform: capitalize;
+	display: inline-block;
+	user-select: none;
+	color: lighten(map-get($colors, primary), $lighten);
+	border-radius: 6px;
+	&:focus {
+		outline: none;
+	}
+}
+
+.textarea-wrapper textarea,
+.select-wrapper select {
+	height: calc(100% - 0.25em);
+	margin-top: 0.125em;
+}
+.textarea-wrapper label {
+	height: 9em;
+}
+
+.input-wrapper label,
+.textarea-wrapper label,
+.select-wrapper label {
+	text-transform: capitalize;
+	display: inline-block;
+	user-select: none;
+	padding: 0;
+	width: 100%;
+	color: lighten(map-get($colors, primary), $lighten);
+	border-radius: 6px;
+	transition: color $btn-transistion-time;
+	box-shadow: inset 0 0 0 0.125em;
+	&:before {
+		position: absolute;
+		content: '';
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		border-radius: inherit;
+		z-index: 2;
+		@include bg-gradient(
+			to left,
+			rgba($white, 0),
+			rgba($white ,0.3)
+		);
+	}
+	&:after {
+		@include icon-font;
+		content: "";
+		position: absolute;
+		display: flex;
+		align-items: center;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		padding: 0.8em 0;
+		transition: right 0.3s ease-out;
+	}
+}
+
+.input-wrapper label,
+.textarea-wrapper label {
+	cursor: text;
+}
+
+.select-wrapper label {
+	&:after {
+		@include icon-font();
+		content: "\e914";
+		position:absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		display: flex;
+		align-items: center;
+		padding: 0.8em;
+	}
+}
+
+.select-wrapper select[multiple] + label,
+.select-wrapper select[size] + label {
+	&:after {
+		content: "";
+		display: none;
+	}
+}
+
+.select-wrapper label,
+.input-wrapper input:focus + label,
+.textarea-wrapper textarea:focus + label,
+.select-wrapper select:focus + label {
+	cursor: default;
+	pointer-events: none;
+}
+
+.input-wrapper input:focus + label,
+.textarea-wrapper textarea:focus + label,
+.select-wrapper select:focus + label {
+	color: lighten(map-get($colors, primary), 15%);
+}
+
+.input-wrapper input:valid + label,
+.textarea-wrapper textarea:valid + label,
+.select-wrapper select:valid + label {
+	color: lighten(map-get($colors, success), $lighten);
+	&:after {
+		content: "\e916";
+		right: 1em;
+		transition: right 0.3s ease-out;
+	}
+}
+
+.input-wrapper input:focus:valid + label,
+.textarea-wrapper textarea:focus:valid + label,
+.select-wrapper select:focus:valid + label {
+	color: lighten(map-get($colors, success), 15%);
+}
+
+.input-wrapper .touched:invalid + label,
+.textarea-wrapper .touched:invalid + label,
+.select-wrapper  .touched:invalid + label {
+	color: map-get($colors, danger);
+	&:after {
+		content: "\e915";
+		right: 1em;
+		transition: right 0.3s ease-out;
+	}
+}
+
+.input-wrapper .touched:focus:invalid + label,
+.textarea-wrapper .touched:focus:invalid + label,
+.select-wrapper  .touched:focus:invalid + label {
+	color: lighten(map-get($colors, danger), 7%);
+}
+
+label span {
+	padding: 1em;
+	width: 100%;
+	font-size: $font-size-small;
+	transition: transform 0.3s;
+}
+
+.input-wrapper label span,
+.textarea-wrapper label span,
+.select-wrapper label span {
+	display: block;
+}
+
+.select-wrapper label span {
+	position: absolute;
+	top: 0;
+	cursor: default;
+	pointer-events: none;
+}
+
+input[type=date] + label span,
+input[type=datetime] + label span,
+input[type=datetime-local] + label span,
+input[type=month] + label span,
+input[type=week] + label span,
+input[type=time] + label span,
+input[list] + datalist + label span,
+select + label span {
+	transform: translate(0, -2.5em);
+}
+
+input:focus + label span,
+textarea:focus + label span,
+select:focus + label span,
+input:valid + label span,
+textarea:valid + label span,
+select:valid + label span,
+.no-js input + label span,
+.no-js textarea + label span,
+.no-js select + label span,
+.has-value + label span {
+	transform: translate(-1em, -2.5em);
+}
+
+/*
+ *	Search form_overlay
+ */
+
+.search-form:before {
+	@include icon-font;
+	content: "\e910";
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	padding-left: 0.9em;
+	pointer-events: none;
+	display: flex;
+	align-items: center;
+	z-index: 1000;
+	color: $gray-lighter;
+}
+
+.search-input {
+	@include reset;
+	cursor: pointer;
+	font-size: 0.7em;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.0625em;
+	outline: none;
+	padding: 1em 1.5em;
+	border-radius: 0.375em;
+	border: 0.1875em solid;
+	color: $gray-lighter;
+	transition: width .5s ease-out,
+							color $btn-transistion-time ease-out;
+	width: 4em;
+	&:hover {
+		color: $link-color;
+	}
+}
+
+.search-input:focus {
+	width: 12em;
+	max-width: 100%;
+	padding-left: 3em;
+	color: $link-color;
+}
+
+.search-input::-webkit-search-decoration,
+.search-input::-webkit-search-cancel-button {
+	display: none;
+}

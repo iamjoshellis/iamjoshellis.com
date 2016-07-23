@@ -1,0 +1,14 @@
+.home.page {
+  .page-header {
+    height: 100vh;
+  }
+  .page-header + .container {
+    margin-top: 0;
+  }
+  .the-content {
+    margin-bottom: 0;
+  }
+  .footer {
+    margin-top: 0;
+  }
+}

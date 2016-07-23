@@ -1,0 +1,57 @@
+@media (min-width:700px) {
+  .tooltip {
+    cursor: pointer;
+  }
+  .tooltip:hover::after {
+    transform: translate3d(-50%, 0, 0);
+  }
+  .tooltip:hover::after,
+  .tooltip:hover::before {
+    opacity: 1;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition-delay: 0.1s;
+  }
+  .tooltip::after {
+    content: attr(aria-label);
+    z-index: 1000;
+    font-family: $font-family-sans;
+    font-size: $font-size-small;
+    white-space: nowrap;
+    color: $white;
+    top: 100%;
+    margin: 12px 0 0;
+    padding: 0.5em 0.6em;
+    border-radius: 3px;
+    transform: translate3d(-50%, -5px, 0);
+    @include box-shadow(0, 0, $box-shadow-small, $box-shadow-light);
+    @include bg-gradient(
+      45deg,
+      lighten(map-get($colors, info), $lighten),
+      darken(map-get($colors, info), $darken)
+    );
+  }
+  .tooltip::before,
+  .tooltip::after {
+    position: absolute;
+    left: 50%;
+    pointer-events: none;
+    opacity: 0;
+  }
+  .tooltip:hover::before {
+    transform: translate3d(0, 0, 0);
+  }
+  .tooltip::before {
+      content: '';
+      z-index: 1001;
+      top: 100%;
+      width: 0;
+      height: 0;
+      margin: 0 0 0 -6px;
+      pointer-events: none;
+      border: solid transparent;
+      border-width: 6px;
+      border-color: transparent;
+      border-bottom-color: map-get($colors, info);
+      transform: translate3d(0, -5px, 0);
+  }
+}

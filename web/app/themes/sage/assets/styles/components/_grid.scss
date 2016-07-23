@@ -1,0 +1,8 @@
+.container {
+  @include container($base-container-width);
+  @each $screen, $breakpoint in $breakpoints {
+    @media screen and (min-width: $breakpoint) {
+      @include container(map-get($containers, $screen));
+    }
+  }
+}

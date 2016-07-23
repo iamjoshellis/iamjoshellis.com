@@ -1,0 +1,226 @@
+a, dd, dl, dt, figcaption, h1, h2, h3, h4, h5, h6, hr, li, ol, p, strong, ul {
+  @include reset;
+}
+
+body {
+  @include font-size($body-font-sizes);
+  font-family: $font-family-primary;
+  font-weight: 400;
+  color: $text-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-headings;
+  font-weight: 400;
+  color: $headings-color;
+  padding: .5em 0;
+  a {
+    color: $gray-darker;
+    border-bottom: none;
+    padding-bottom: 0;
+    &:hover {
+      border-bottom: none;
+      color: $link-color;
+    }
+  }
+}
+
+a {
+  font-size: 100%;
+  text-decoration: none;
+  vertical-align: baseline;
+  color: $link-color;
+  transition: color $link-transistion-time, border-bottom $link-transistion-time;
+  &:hover {
+    color: $link-hover-color;
+  }
+}
+
+p {
+  line-height: $line-height-default;
+  padding: .5em 0;
+}
+
+.small {
+  font-size: $font-size-small;
+}
+
+.large {
+  font-size: $font-size-large;
+}
+
+.the-content a, .entry-summary a {
+    border-bottom: .1em solid rgba($link-color, 0.1);
+    padding-bottom: .1em;
+    &:hover {
+      border-bottom: .1em solid rgba($link-hover-color, 0.5);
+  }
+}
+
+article {
+  h1, h2, h3, h4, h5, h6 {
+    a {
+      color: $gray-lighter;
+      border-bottom: none;
+      padding-bottom: 0;
+      &:hover {
+        border-bottom: none;
+      }
+      &:before {
+        position: absolute;
+        left: -0.75em;
+        color: $gray-lighter;
+        transition: color $link-transistion-time;
+        @include screen-above(map-get($breakpoints, large)){
+          content: '#';
+        }
+      }
+      &:hover:before {
+        color: $link-color;
+      }
+    }
+  }
+}
+
+ol, ul, dl {
+  list-style-type: none;
+  margin: .5em 1.5em;
+  line-height: $line-height-default;
+}
+
+
+li {
+  padding: .25em 0 .25em 1.25em;
+  position: relative;
+  &:before {
+    position: absolute;
+    left: 0;
+    font-family: $font-family-serif;
+    color: $gray-lighter;
+  }
+}
+
+ul li:before {
+  content: "•";
+  font-size: 1.5em;
+  line-height: 1;
+  vertical-align: bottom;
+}
+
+ol li {
+  counter-increment: list-counter;
+  &:before {
+    font-weight: 300;
+    content: counter(list-counter)".";
+  }
+}
+
+dt {
+  font-size: $font-size-large;
+  padding: .25em 0;
+  font-style: italic;
+  color: $gray-darker;
+}
+
+dd {
+  padding: .25em 0 .25em 1.25em;
+  margin: 0;
+}
+
+blockquote {
+  font-size: $font-size-large;
+  font-family: $font-family-serif;
+  font-weight: 300;
+  line-height: $line-height-default;
+  margin: 1em 0;
+  padding: 2em 3em;
+  position: relative;
+  border-left: 0.25em solid $gray-lightest;
+  &:before {
+    position: absolute;
+    color: $gray-lightest;
+    content: "\201C";
+    font-family: serif;
+    font-size: 2em;
+    line-height: 1;
+    top: 0;
+    left: 0;
+    transform: translate(150%, 50%);
+  }
+  cite {
+    font-size: $font-size-small;
+    font-family: $font-family-sans;
+    display: block;
+    text-align: right;
+    padding-top: 1em;
+    color: $gray-light;
+    &:before {
+      content: "- ";
+    }
+  }
+}
+
+aside {
+  font-family: $font-family-serif;
+  font-weight: 400;
+  font-style: italic;
+  margin: 0;
+  padding: 1em 0;
+  text-align: center;
+  color: map-get($colors, secondary);
+  @include font-size($h2-font-sizes);
+}
+
+code {
+  font-family: $font-family-code;
+  color: #000;
+  background: #f5f2f0;
+  padding: 0 0.1em;
+  border-radius: 3px;
+  @extend code[class*=language-] !optional;
+  font-size: 85%;
+}
+
+pre {
+  overflow: scroll;
+  font-size: $font-size-small;
+  border-left: 0.25em solid $gray-lightest;
+}
+
+hr {
+  padding-top: 4rem;
+  margin-bottom: 4rem;
+  border-bottom: 0.25rem $gray-lightest solid;
+  clear: both;
+}
+
+h1 {
+  @include font-size($h1-font-sizes);
+}
+
+h2 {
+  @include font-size($h2-font-sizes);
+}
+
+h3 {
+  @include font-size($h3-font-sizes);
+}
+
+h4 {
+  @include font-size($h4-font-sizes);
+}
+
+h5 {
+  @include font-size($h5-font-sizes);
+}
+
+h6 {
+  @include font-size($h6-font-sizes);
+}
+
+.h1 { @extend h1 }
+.h2 { @extend h2 }
+.h3 { @extend h3 }
+.h4 { @extend h4 }
+.h5 { @extend h5 }
+.h6 { @extend h6 }

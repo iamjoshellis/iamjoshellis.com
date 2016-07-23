@@ -1,0 +1,22 @@
+@mixin lead-text() {
+  font-size: $font-size-large;
+  font-family: $font-family-serif;
+  font-weight: 300;
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 0.25rem $gray-lightest solid;
+  & > + h1,
+  & > + h2,
+  & > + h3,
+  & > + h4,
+  & > + h5,
+  & > + h6,
+  & > + p {
+    margin-top: 0;
+    padding-top: 0;
+  }
+}
+
+.lead-text {
+  @include lead-text;
+}

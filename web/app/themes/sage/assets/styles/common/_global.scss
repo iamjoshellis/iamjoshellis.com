@@ -1,0 +1,54 @@
+@include border-box-sizing;
+
+* {
+  position: relative;
+}
+
+html, body {
+  @include clearfix;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "liga", "kern";
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  background-color: $body-bg;
+  overflow: hidden;
+}
+
+article, aside, figure, iframe, img, span {
+  @include reset;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0
+}
+
+.cover {
+  height: 100vh;
+}
+
+.wrap, .content, .main .page-header, .text-container, .nav-social {
+  pointer-events: all;
+}
+
+.sr-only {
+  position:absolute;
+  left:-10000px;
+  top:auto;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+.js-hidden {
+  display: none;
+}

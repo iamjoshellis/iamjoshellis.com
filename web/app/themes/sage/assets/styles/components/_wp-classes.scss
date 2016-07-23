@@ -1,0 +1,122 @@
+// WordPress Generated Classes
+// http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+
+/*
+ *  Images and figures
+ */
+
+figure.alignnone,
+figure.aligncenter,
+figure.alignleft,
+figure.alignright,
+img.alignnone,
+img.aligncenter,
+img.alignleft,
+img.alignright {
+  display: block;
+  margin: 1em auto;
+  max-width: 100%;
+}
+
+img.alignnone,
+img.aligncenter,
+img.alignleft,
+img.alignright,
+.alignnone img,
+.aligncenter img,
+.alignleft img,
+.alignright img {
+  height: auto;
+  z-index: 1;
+  border-radius: 3px;
+  @include box-shadow(0, 0, $box-shadow-small, $box-shadow-light);
+  &.no-shadow {
+    box-shadow: none;
+  }
+}
+
+img.alignnone,
+figure.alignnone {
+  max-width: 100%;
+}
+
+img.aligncenter,
+figure.aligncenter {
+  margin: 1em auto;
+  display: block;
+}
+
+@include screen-above(map-get($breakpoints, medium)) {
+  img.alignleft,
+  img.alignright,
+  figure.alignleft,
+  figure.alignright {
+    margin:  1em 1.5em;
+    width: auto;
+    max-width: calc(50vw - 3em);
+    max-height: 100vh;
+  }
+  img.alignleft,
+  figure.alignleft {
+    float: left;
+    margin-left: calc(-50vw + 50% + 1.5em);
+  }
+  img.alignright,
+  figure.alignright {
+    float: right;
+    margin-right: calc(-50vw + 50% + 1.5em);
+  }
+}
+
+.wp-post-image {
+  height: auto;
+  z-index: 1;
+  border-radius: 3px;
+  @include box-shadow(0, 0, $box-shadow-small, $box-shadow-light);
+}
+
+.wp-caption-text {
+  font-size: $font-size-small;
+  color: $gray-light;
+  font-style: italic;
+  text-align: center;
+  margin-top: 1em;
+}
+
+/*
+ *  Aside
+ */
+
+aside.alignleft,
+aside.alignright {
+  @include screen-above(map-get($breakpoints, small)) {
+    max-width: 50%;
+    padding: 0.75em 1em;
+  };
+}
+aside.alignright {
+  @include screen-above(map-get($breakpoints, small)) {
+    float: right;
+    text-align: left;
+  };
+  @include screen-above(78em) {
+    margin-right: -25%;
+  };
+}
+aside.alignleft {
+  @include screen-above(map-get($breakpoints, small)) {
+    float: left;
+    text-align: right;
+  };
+  @include screen-above(78em) {
+    margin-left: -25%;
+  };
+}
+
+/*
+ *  Screen reader text
+ */
+
+.screen-reader-text {
+  @extend .sr-only;
+}
