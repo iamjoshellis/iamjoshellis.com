@@ -8,9 +8,9 @@ $title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8'));
 $tags = '';
 if (get_the_tags()) {
   foreach(get_the_tags() as $tag) {
-     $tags .= $tag->name . ',';
+     $tags .= Extras\tidy_string($tag->name) . ',';
   }
-  $tags = urlencode(Extras\tidy_string($tags));
+  $tags = urlencode($tags);
 }
 
 $twitter_url = 'https://twitter.com/intent/tweet?text=' . $title . '&url=' . $url . '&hashtags=' . $tags;
