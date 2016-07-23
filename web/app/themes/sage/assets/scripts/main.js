@@ -31,6 +31,7 @@
         });
         // End Headroom
 
+        // Mobile Menu
         (function(window) {
 
           'use strict';
@@ -119,11 +120,15 @@
           initEvents();
 
         })(window);
+        // End Mobile Menu
 
+        // Page Header Images Loaded
         $('#page-header').imagesLoaded( function() {
           $('#page-header').addClass('images-loaded');
         });
+        // End Page Header Images Loaded
 
+        // Social Sharing Buttons
         $('.social-share a').on('click', function(e) {
           e.preventDefault();
           var link = jQuery(this).attr('href');
@@ -139,6 +144,7 @@
           }
           return true;
         });
+        // End Social Sharing Buttons
 
       }
     },
