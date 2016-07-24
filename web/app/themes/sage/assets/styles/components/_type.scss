@@ -11,7 +11,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-family-headings;
-  font-weight: 400;
+  font-weight: 700;
   color: $headings-color;
   padding: .5em 0;
   a {
@@ -130,7 +130,7 @@ dd {
 blockquote {
   font-size: $font-size-large;
   font-family: $font-family-serif;
-  font-weight: 300;
+  font-weight: bold;
   line-height: $line-height-default;
   margin: 1em 0;
   padding: 2em 3em;
@@ -162,7 +162,7 @@ blockquote {
 
 aside {
   font-family: $font-family-serif;
-  font-weight: 400;
+  font-weight: bold;
   font-style: italic;
   margin: 0;
   padding: 1em 0;
