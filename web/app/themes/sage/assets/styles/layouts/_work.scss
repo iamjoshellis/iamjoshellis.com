@@ -38,7 +38,7 @@
       margin-left: calc(-50vw + 50% + 1.5em);
       transition: transform $link-transistion-time ease-out;
       &:hover {
-        transform: translateY(1rem);
+        transform: translateY(-.5rem);
       }
     }
     .wp-post-image {
