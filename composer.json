@@ -38,6 +38,10 @@
     {
       "type": "git",
       "url": "git@bitbucket.org:iamjoshellis/wp-migrate-db-pro-media-files.git"
+    },
+    {
+      "type": "git",
+      "url": "git@bitbucket.org:iamjoshellis/advanced-custom-fields-pro.git"
     }
   ],
   "require": {
@@ -50,6 +54,7 @@
     "roots/wp-stage-switcher": "2.0.0",
     "iamjoshellis/wp-migrate-db-pro": "^1.6",
     "iamjoshellis/wp-migrate-db-pro-media-files": "^1.4.4",
+    "iamjoshellis/advanced-custom-fields-pro": "^5.3.3.1",
     "yoast/wordpress-seo": "^3.0.7",
     "wpackagist-plugin/simple-301-redirects": "^1.06",
     "wpackagist-plugin/medium": "^1.4.0",

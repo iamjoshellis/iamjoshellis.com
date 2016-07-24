@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3689977af504cd672903b3702397ba7c",
-    "content-hash": "4b665c0c6239b69da718d4295790ad5a",
+    "hash": "52b8336b35268f25b241a29aff01b2c9",
+    "content-hash": "64f5c90305fda54c6975d035088df96e",
     "packages": [
         {
             "name": "composer/installers",
@@ -106,6 +106,17 @@
                 "zikula"
             ],
             "time": "2016-04-13 19:46:30"
+        },
+        {
+            "name": "iamjoshellis/advanced-custom-fields-pro",
+            "version": "5.3.3.1",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:iamjoshellis/advanced-custom-fields-pro.git",
+                "reference": "2674fb54956439191a296c6b21036eae44dcb764"
+            },
+            "type": "wordpress-plugin",
+            "time": "2016-07-24 15:01:52"
         },
         {
             "name": "iamjoshellis/wp-migrate-db-pro",
