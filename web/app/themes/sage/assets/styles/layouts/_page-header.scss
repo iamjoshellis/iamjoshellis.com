@@ -57,9 +57,9 @@
     overflow: hidden;
   }
   a, h1 a {
-    color: map-get($colors, secondary);
+    color: $headings-color;
     &:hover {
-      color: darken(map-get($colors, secondary), 10%);
+      color: map-get($colors, secondary);
     }
   }
   .text-container {
