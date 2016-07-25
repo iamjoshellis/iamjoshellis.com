@@ -56,6 +56,12 @@
     z-index: -1;
     overflow: hidden;
   }
+  a, h1 a {
+    color: map-get($colors, secondary);
+    &:hover {
+      color: darken(map-get($colors, secondary), 10%);
+    }
+  }
   .text-container {
     padding: 2em 0;
     pointer-events: none;

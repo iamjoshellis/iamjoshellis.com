@@ -6,6 +6,12 @@
     background-position: right center;
     background-repeat: no-repeat;
     background-color: black;
+    a, h1 a {
+      color: $link-color;
+      &:hover {
+        color: $link-hover-color;
+      }
+    }
   }
   @include screen-above(1100px) {
     .page-header .text-container {
