@@ -2,7 +2,7 @@
   @include bg-gradient(
     -150deg,
     lighten( map-get($colors, primary), 5%),
-    darken( map-get($colors, primary), 5%)
+    map-get($colors, info)
   );
   text-align: center;
   color: $white;
