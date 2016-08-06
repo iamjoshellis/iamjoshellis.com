@@ -1,3 +1,10 @@
+### 1.0.3: 2016-08-06
+
+* More generic input state handling.
+* Fixed contact form action url for no-js.
+* Fixed icon font path.
+* Font and weight changes for asides and blockquotes.
+
 ### 1.0.2: 2016-07-24
 
 * Installed ACF via composer which is required to make the site work... 😳.
