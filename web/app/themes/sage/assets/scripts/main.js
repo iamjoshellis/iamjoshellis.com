@@ -148,7 +148,6 @@
 
         // Generic Input States
         var inputs = $('input, textarea');
-        console.log(inputs);
         function checkInputHasVal(input) {
           if(input.val()){
             input.addClass('has-value');
@@ -156,14 +155,13 @@
             input.removeClass('has-value');
           }
         }
-
         inputs.keyup(function(){
           checkInputHasVal($(this));
         });
-
         inputs.focusout(function(){
           $(this).addClass('touched');
         });
+        // End Generic Input States
 
       }
     },
