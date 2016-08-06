@@ -146,6 +146,25 @@
         });
         // End Social Sharing Buttons
 
+        // Generic Input States
+        var inputs = $('input, textarea');
+        console.log(inputs);
+        function checkInputHasVal(input) {
+          if(input.val()){
+            input.addClass('has-value');
+          } else {
+            input.removeClass('has-value');
+          }
+        }
+
+        inputs.keyup(function(){
+          checkInputHasVal($(this));
+        });
+
+        inputs.focusout(function(){
+          $(this).addClass('touched');
+        });
+
       }
     },
 
@@ -197,21 +216,11 @@
           }
         }
 
-        function checkInputHasVal(input) {
-          if(input.val()){
-            input.addClass('has-value');
-          } else {
-            input.removeClass('has-value');
-          }
-        }
-
         inputs.keyup(function(){
-          checkInputHasVal($(this));
           checkFormValid();
         });
 
         inputs.focusout(function(){
-          $(this).addClass('touched');
           checkFormValid();
         });
 
