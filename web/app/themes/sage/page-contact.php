@@ -37,7 +37,7 @@ if(isset($_POST['action']) && $_POST['action'] == 'contact_form') {
   <?php get_template_part('templates/content', 'page'); ?>
 <?php endwhile; ?>
 <div class="container">
-  <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" class="form <?= $state ?>" id="contact-form" role="form" method="POST">
+  <form action="/<?php global $post; echo $post->post_name; ?>/" class="form <?= $state ?>" id="contact-form" role="form" method="POST">
     <span class="input-wrapper">
       <input id="contact-name" name="contact-name" type="text" value="" aria-required="true" aria-invalid="false" required>
       <label for="contact-name">
