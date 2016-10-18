@@ -20,13 +20,13 @@
       init: function() {
 
         // Headroom
-        $("#menu-container").headroom({
-          "offset": 205,
-          "tolerance": 5,
-          "classes": {
-            "initial": "headroom",
-            "pinned": "header--visible",
-            "unpinned": "header--hidden"
+        $('#menu-container').headroom({
+          'offset': 205,
+          'tolerance': 5,
+          'classes': {
+            'initial': 'headroom',
+            'pinned': 'header--visible',
+            'unpinned': 'header--hidden'
           }
         });
         // End Headroom
@@ -36,22 +36,21 @@
 
           'use strict';
 
-          var support = { transitions: Modernizr.csstransitions },
+          var support = {transitions: Modernizr.csstransitions},
           // transition end event name
-          transEndEventNames = { 'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend' },
-          transEndEventName = transEndEventNames[ Modernizr.prefixed( 'transition' ) ],
-          onEndTransition = function( el, callback ) {
-            var onEndCallbackFn = function( ev ) {
-              if( support.transitions ) {
-                if( ev.target !== this ) {return;}
-                this.removeEventListener( transEndEventName, onEndCallbackFn );
+          transEndEventNames = {'WebkitTransition': 'webkitTransitionEnd', 'MozTransition': 'transitionend', 'OTransition': 'oTransitionEnd', 'msTransition': 'MSTransitionEnd', 'transition': 'transitionend'},
+          transEndEventName = transEndEventNames[ Modernizr.prefixed('transition') ],
+          onEndTransition = function(el, callback) {
+            var onEndCallbackFn = function(ev) {
+              if (support.transitions) {
+                if (ev.target !== this) {return;}
+                this.removeEventListener(transEndEventName, onEndCallbackFn);
               }
-              if( callback && typeof callback === 'function' ) { callback.call(this); }
+              if (callback && typeof callback === 'function') { callback.call(this); }
             };
-            if( support.transitions ) {
-              el[0].addEventListener( transEndEventName, onEndCallbackFn );
-            }
-            else {
+            if (support.transitions) {
+              el[0].addEventListener(transEndEventName, onEndCallbackFn);
+            } else {
               onEndCallbackFn();
             }
           },
@@ -72,7 +71,7 @@
             wrapper.addClass('wrap--open');
             // allow changes to render:
             // http://stackoverflow.com/questions/15875128/how-to-tell-when-a-dynamically-created-element-has-rendered
-            setTimeout(function(){
+            setTimeout(function() {
               page.addClass('content--transition');
             }, 0);
           }
@@ -98,10 +97,9 @@
           }
 
           function toggleMenu() {
-            if( isMenuOpen ) {
+            if (isMenuOpen) {
               closeMenu();
-            }
-            else {
+            } else {
               openMenu();
               isMenuOpen = true;
             }
@@ -110,7 +108,7 @@
           function initEvents() {
             menuButton[0].addEventListener('click', toggleMenu);
             page[0].addEventListener('click', function(ev) {
-              if(isMenuOpen) {
+              if (isMenuOpen) {
                 ev.preventDefault();
                 openPage();
               }
@@ -123,7 +121,7 @@
         // End Mobile Menu
 
         // Page Header Images Loaded
-        $('#page-header').imagesLoaded( function() {
+        $('#page-header').imagesLoaded(function() {
           $('#page-header').addClass('images-loaded');
         });
         // End Page Header Images Loaded
@@ -135,7 +133,7 @@
           var width = 840;
           var height = 464;
           var popupName = 'popup_' + width + 'x' + height;
-          var left = (screen.width-width) / 2;
+          var left = (screen.width - width) / 2;
           var top = 100;
           var params = 'width=' + width + ',height=' + height + ',location=no,menubar=no,scrollbars=yes,status=no,toolbar=no,left=' + left + ',top=' + top;
           window[popupName] = window.open(link, popupName, params);
@@ -149,16 +147,16 @@
         // Generic Input States
         var inputs = $('input, textarea');
         function checkInputHasVal(input) {
-          if(input.val()){
+          if (input.val()) {
             input.addClass('has-value');
           } else {
             input.removeClass('has-value');
           }
         }
-        inputs.keyup(function(){
+        inputs.keyup(function() {
           checkInputHasVal($(this));
         });
-        inputs.focusout(function(){
+        inputs.focusout(function() {
           $(this).addClass('touched');
         });
         // End Generic Input States
@@ -169,14 +167,40 @@
     // Single Work
     'single_work': {
       init: function() {
-        $('.alignright, .alignleft').viewportChecker({});
+        var wow = new WOW(
+          {
+            boxClass: 'alignright',
+            animateClass: 'visible',
+          }
+        );
+        wow.init();
+        var wow2 = new WOW(
+          {
+            boxClass: 'alignleft',
+            animateClass: 'visible',
+          }
+        );
+        wow2.init();
       }
     },
 
-    // Single Work
+    // Work Archive
     'post_type_archive_work': {
       init: function() {
-        $('.featured-iframe-wrap, .wp-post-image').viewportChecker({});
+        var wow = new WOW(
+          {
+            boxClass: 'featured-iframe-wrap',
+            animateClass: 'visible',
+          }
+        );
+        wow.init();
+        var wow2 = new WOW(
+          {
+            boxClass: 'wp-post-image',
+            animateClass: 'visible',
+          }
+        );
+        wow2.init();
       }
     },
 
@@ -214,11 +238,11 @@
           }
         }
 
-        inputs.keyup(function(){
+        inputs.keyup(function() {
           checkFormValid();
         });
 
-        inputs.focusout(function(){
+        inputs.focusout(function() {
           checkFormValid();
         });
 
@@ -255,7 +279,7 @@
             data     : $(this).serialize(),
             success  : function(data) {
               data = JSON.parse(data);
-              if(data.status === 'success') {
+              if (data.status === 'success') {
                 response(data, state_success);
               } else {
                 // TODO Better error handling
